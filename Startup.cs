@@ -12,6 +12,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
+// Importações
+using API_DotNet.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace API_DotNet
 {
     public class Startup
@@ -28,6 +32,16 @@ namespace API_DotNet
         {
 
             services.AddControllers();
+
+            // Início conexão com o banco de dados   
+            string stringDeConexao = Configuration.GetConnectionString("conexaoMySQL");
+
+         services.AddDbContext<DataContext>(opt =>opt.UseMySql(stringDeConexao, ServerVersion.AutoDetect(stringDeConexao)));
+
+            // Término da conexão com o banco de dados
+
+
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API_DotNet", Version = "v1" });
