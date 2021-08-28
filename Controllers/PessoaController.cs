@@ -12,7 +12,7 @@ namespace API_DotNet.Controllers
         [HttpGet("oi")]
         public string oi()
         {
-            return "Hello World";
+            return "Exemplo de criação de Rota";
         }
     }
 }
