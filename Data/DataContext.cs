@@ -10,7 +10,7 @@ namespace API_DotNet.Data
         {}
 
         /* Nome do Modelo - Nome do método e o get e  set */
-        public DbSet<Pessoa> pessoas{ get; set; }
+        public DbSet<Pessoa> pessoa { get; set; }
         
     }
 }
